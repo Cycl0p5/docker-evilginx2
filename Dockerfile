@@ -21,6 +21,9 @@ RUN set -ex \
 		&& apk del ${INSTALL_PACKAGES} && rm -rf /var/cache/apk/* && rm -rf ${GOPATH}/src/*
 
 COPY ./docker-entrypoint.sh /opt/
+COPY phishlets /phishlets
+COPY config /config
+COPY templates /templates
 RUN chmod +x /opt/docker-entrypoint.sh
 		
 ENTRYPOINT ["/opt/docker-entrypoint.sh"]
